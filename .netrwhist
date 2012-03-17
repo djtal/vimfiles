@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/djtal/Developement/Projects/xpotools'
+let g:netrw_dirhist_2='/Users/djtal/.vim'
+let g:netrw_dirhist_3='/Users/djtal/Developement/Projects/Web/ludomanager2'
+let g:netrw_dirhist_4='/Users/djtal/Developement/Projects/Web/ludomanager2/app'
+let g:netrw_dirhist_5='/Users/djtal/Developement/Projects/Web/ludomanager2/app/assets'
+let g:netrw_dirhist_6='/Users/djtal/Developement/Projects/Web/ludomanager2/app/assets/stylesheets'
