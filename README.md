@@ -5,6 +5,9 @@ My vim Setup
 To complete
 
 
+[Graphical CheatSheet](http://www.nathael.org/Data/vi-vim-cheat-sheet.svg)
+
+
 Plugins used
 ------------
 
