@@ -5,6 +5,9 @@ My vim Setup
 To complete
 
 
+[Graphical CheatSheet](http://www.nathael.org/Data/vi-vim-cheat-sheet.svg)
+
+
 Plugins used
 ------------
 
@@ -14,6 +17,7 @@ Plugins used
 * [Ack.vim](https://github.com/mileszs/ack.vim)
 * [Snipmate](https://github.com/garbas/vim-snipmate)
 * [Snipmate-Snipets](https://github.com/honza/snipmate-snippets)
+* [Delimate](https://github.com/Raimondi/delimitMate)
 
 Dependencies
 ############
@@ -36,3 +40,4 @@ Resources
 * [sample of some configuration](http://amix.dk/vim/vimrc.html)
 * [Gary Bernhardt : some advice](https://www.destroyallsoftware.com/screencasts/catalog/some-vim-tips)
 * [Lucca Pete : a serie of blog post about vim](http://lucapette.com/vim.html)
+* [VIMPusher](http://www.vimpusher.com/) a site tu peruss for inspiration
