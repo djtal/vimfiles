@@ -1,6 +1,6 @@
 ---
 title: My vim Setup
-layout: page
+layout: default.html
 ---
 
 Here is my vim setup, the plugins I use and various ressource on how to use/configure vim
