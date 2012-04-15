@@ -1,6 +1,6 @@
 ---
 title: My vim Setup
-layout: default.html
+layout: site
 ---
 
 Here is my vim setup, the plugins I use and various ressource on how to use/configure vim
@@ -14,7 +14,7 @@ Credit for the goes to their original author. Sorry I'm not always remember wher
 If you are the author of one off them simply tell me and I credit you right here)
 
 
-[You can find them in details](./pages/colorschemes.html)
+[You can find them in details](colorschemes.html)
 
 
 
