@@ -1,8 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/djtal/Developement/Projects/xpotools'
-let g:netrw_dirhist_2='/Users/djtal/.vim'
-let g:netrw_dirhist_3='/Users/djtal/Developement/Projects/Web/ludomanager2'
-let g:netrw_dirhist_4='/Users/djtal/Developement/Projects/Web/ludomanager2/app'
-let g:netrw_dirhist_5='/Users/djtal/Developement/Projects/Web/ludomanager2/app/assets'
-let g:netrw_dirhist_6='/Users/djtal/Developement/Projects/Web/ludomanager2/app/assets/stylesheets'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/djtal/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/enumerize-0.2.0/lib'
+let g:netrw_dirhist_2='/Users/djtal/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/enumerize-0.2.0/lib/enumerize'
+let g:netrw_dirhist_3='/Users/djtal/Dropbox/Docs/Misc'
+let g:netrw_dirhist_4='/Users/djtal/Developement/Projects/yard-docset'

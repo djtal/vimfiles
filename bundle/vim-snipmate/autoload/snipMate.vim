@@ -17,20 +17,20 @@ endtry
 let s:c.cache_parsed_snippets_on_disk = get(s:c, 'cache_parsed_snippets_on_disk', 0)
 let s:c.read_snippets_cached = get(s:c, 'read_snippets_cached', {'func' : function('snipMate#ReadSnippetsFile'), 'version': 3, 'use_file_cache': s:c.cache_parsed_snippets_on_disk})
 
-" if filetype is objc, cpp, or cs also append snippets from scope 'c'
+" if filetype is objc, cpp, cs or cu also append snippets from scope 'c'
 " you can add multiple by separating scopes by ',', see s:AddScopeAliases
 " TODO add documentation to doc/*
-let s:c['scope_aliases'] = get(s:c,'scope_aliases',
-	  \ {'objc' :'c'
-	  \ ,'cpp': 'c'
-	  \ ,'cs':'c'
-	  \ ,'xhtml': 'html'
-	  \ ,'html': 'javascript'
-	  \ ,'php': 'php,html,javascript'
-	  \ ,'ur': 'html,javascript'
-	  \ ,'mxml': 'actionscript'
-	  \ ,'eruby': 'eruby-rails,html'
-	  \ } )
+let s:c.scope_aliases = get(s:c, 'scope_aliases', {})
+let s:c.scope_aliases.objc = get(s:c.scope_aliases, 'objc', 'c')
+let s:c.scope_aliases.cpp = get(s:c.scope_aliases, 'cpp', 'c')
+let s:c.scope_aliases.cu = get(s:c.scope_aliases, 'cu', 'c')
+let s:c.scope_aliases.cs = get(s:c.scope_aliases, 'cs','c')
+let s:c.scope_aliases.xhtml = get(s:c.scope_aliases, 'xhtml', 'html')
+let s:c.scope_aliases.html = get(s:c.scope_aliases, 'html', 'javascript')
+let s:c.scope_aliases.php = get(s:c.scope_aliases, 'php', 'php,html,javascript')
+let s:c.scope_aliases.ur = get(s:c.scope_aliases, 'ur', 'html,javascript')
+let s:c.scope_aliases.mxml = get(s:c.scope_aliases, 'mxml', 'actionscript')
+let s:c.scope_aliases.eruby = get(s:c.scope_aliases, 'eruby', 'eruby-rails,html')
 
 " set this to "\<tab>" to make snipmate not swallow tab (make sure to not have
 " expandtab set). Remember that you can always enter tabs by <c-v> <tab> then
@@ -506,18 +506,27 @@ endf
 fun! snipMate#ReadSnippetsFile(file)
 	let result = []
 	if !filereadable(a:file) | return result | endif
+	let r_guard = 'guard\s\+\zs.*'
 	let inSnip = 0
+	let guard = 1
 	for line in readfile(a:file) + ["\n"]
-		if inSnip && (line[0] == "\t" || line == '')
+		if inSnip == 2 && line =~ r_guard
+			let guard = matchstr(line, r_guard)
+		elseif inSnip && (line[0] == "\t" || line == '')
 			let content .= strpart(line, 1)."\n"
 			continue
 		elseif inSnip
-			call add(result, [trigger, name == '' ? 'default' : name, content[:-2]])
+			call add(result, [trigger, name == '' ? 'default' : name, content[:-2], guard])
 			let inSnip = 0
+			let guard = "1"
 		endif
 
-		if line[:6] == 'snippet'
+		if inSnip == 2
 			let inSnip = 1
+		endif
+		if line[:6] == 'snippet'
+			" 2 signals first line
+			let inSnip = 2
 			let trigger = strpart(line, 8)
 			let name = ''
 			let space = stridx(trigger, ' ') + 1
@@ -623,15 +632,28 @@ fun! snipMate#GetSnippetFiles(mustExist, scopes, trigger)
   return result
 endf
 
+fun! snipMate#EvalGuard(guard)
+	" left: everything left of expansion 
+	" word: the expanded word
+	" are guaranteed to be in scpe
+
+	if a:guard == '1' | return 1 | endif
+	let word = s:c.word
+	" eval is evil, but backticks are allowed anyway.
+	let left = getline('.')[:col('.')-3 - len(word)]
+	exec 'return '.a:guard
+endf
 
 " default triggers based on paths
 fun! snipMate#DefaultPool(scopes, trigger, result)
 	let triggerR = substitute(a:trigger,'*','.*','g')
 	for [f,opts] in items(snipMate#GetSnippetFiles(1, a:scopes, a:trigger))
 		if opts.type == 'snippets'
-			for [trigger, name, contents] in cached_file_contents#CachedFileContents(f, s:c.read_snippets_cached, 0)
+			for [trigger, name, contents, guard] in cached_file_contents#CachedFileContents(f, s:c.read_snippets_cached, 0)
 				if trigger !~ triggerR | continue | endif
-				call snipMate#SetByPath(a:result, [trigger, opts.name_prefix.' '.name], contents)
+				if snipMate#EvalGuard(guard)
+					call snipMate#SetByPath(a:result, [trigger, opts.name_prefix.' '.name], contents)
+				endif
 			endfor
 		elseif opts.type == 'snippet'
 			call snipMate#SetByPath(a:result, [opts.trigger, opts.name_prefix.' '.opts.name], funcref#Function('return readfile('.string(f).')'))
@@ -748,6 +770,7 @@ fun! snipMate#GetSnippetsForWordBelowCursor(word, suffix, break_on_first_match)
 	let snippet = ''
 	" prefer longest word
 	for word in lookups
+		let s:c.word = word
 		" echomsg string(lookups).' current: '.word
 		for [k,snippetD] in items(funcref#Call(s:c['get_snippets'], [snipMate#ScopesByFile(), word]))
 			if a:suffix == ''
