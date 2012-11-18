@@ -55,3 +55,9 @@
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/vim-coffee-script.vim"]
+	path = bundle/vim-coffee-script.vim
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/less.vim"]
+	path = bundle/less.vim
+	url = https://github.com/groenewege/vim-less.git
