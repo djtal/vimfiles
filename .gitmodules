@@ -61,3 +61,6 @@
 [submodule "bundle/less.vim"]
 	path = bundle/less.vim
 	url = https://github.com/groenewege/vim-less.git
+[submodule "bundle/repeat.vim"]
+	path = bundle/repeat.vim
+	url = https://github.com/tpope/vim-repeat.git
