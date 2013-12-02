@@ -13,8 +13,9 @@ let g:colors_name="molokai-im"
 
 " Basic Layout {{{
 
-hi Normal          guifg=#F8F8F2 guibg=#090a0a
-" hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
+" hi Normal          guifg=#F8F8F2 guibg=#090a0a
+" hi Normal          guifg=#272822 guibg=#272822
+hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
 hi Folded          guifg=#666666 guibg=bg
 hi CursorLine                    guibg=#232728
 hi CursorColumn                  guibg=#232728
@@ -212,7 +213,7 @@ if &t_Co > 255
    hi Search          ctermfg=253 ctermbg=66
 
    " marks column
-   hi SignColumn      ctermfg=118 ctermbg=235
+   hi SignColumn      ctermfg=118 ctermbg=Black
    hi SpecialChar     ctermfg=161               cterm=bold
    hi SpecialComment  ctermfg=245               cterm=bold
    hi Special         ctermfg=81  ctermbg=232
@@ -237,7 +238,7 @@ if &t_Co > 255
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
-   highlight Normal   ctermfg=White ctermbg=Black
+   hi Normal          ctermfg=White ctermbg=Black
    hi Comment         ctermfg=59
    hi CursorLine                  ctermbg=234   cterm=none
    hi CursorColumn                ctermbg=234

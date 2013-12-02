@@ -1,6 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/djtal/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/enumerize-0.2.0/lib'
-let g:netrw_dirhist_2='/Users/djtal/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/enumerize-0.2.0/lib/enumerize'
-let g:netrw_dirhist_3='/Users/djtal/Dropbox/Docs/Misc'
-let g:netrw_dirhist_4='/Users/djtal/Developement/Projects/yard-docset'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/guillaume/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/rails-adf6e30e3ad4/railties/lib/rails'
+let g:netrw_dirhist_2='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/admin/navigation_items'
+let g:netrw_dirhist_3='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/models'
+let g:netrw_dirhist_4='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/assets/javascripts/admin'
+let g:netrw_dirhist_5='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/admin/alerts'
+let g:netrw_dirhist_6='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/admin/order_returns'
+let g:netrw_dirhist_7='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/widgets/banners'
