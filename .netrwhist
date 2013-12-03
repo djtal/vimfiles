@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/guillaume/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/rails-adf6e30e3ad4/railties/lib/rails'
 let g:netrw_dirhist_2='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/admin/navigation_items'
 let g:netrw_dirhist_3='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/models'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/asse
 let g:netrw_dirhist_5='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/admin/alerts'
 let g:netrw_dirhist_6='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/admin/order_returns'
 let g:netrw_dirhist_7='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/widgets/banners'
+let g:netrw_dirhist_8='/home/guillaume/ciblo/projets/cocktail_v2/webapp/app/views/admin/navigation_items'
