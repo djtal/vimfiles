@@ -82,3 +82,12 @@
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "bundle/emmet-vim"]
+	path = bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
+[submodule "bundle/ember.vim"]
+	path = bundle/ember.vim
+	url = https://github.com/dsawardekar/ember.vim.git
+[submodule "bundle/minitest"]
+	path = bundle/minitest
+	url = https://github.com/sunaku/vim-ruby-minitest.git
